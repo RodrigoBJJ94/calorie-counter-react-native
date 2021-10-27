@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Dimensions, StyleSheet, ImageBackground, StatusBar } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Dimensions, StyleSheet, StatusBar, Alert } from 'react-native';
 import FoodImage from './src/assets/img/FoodImage.svg';
 import DrinkImage from './src/assets/img/DrinkImage.svg';
 
@@ -26,8 +26,12 @@ export default function App() {
   };
 
   const calculateFood = () => {
-    let caloriesFood = Number((protein * 4) + (carbohydrate * 4) + (fat * 9)).toFixed(0);
-    setResultFood(caloriesFood);
+    if ((protein === 0 || protein === '') && (carbohydrate === 0 || carbohydrate === '') && (fat === 0 || fat === '')) {
+      Alert.alert('', 'Please enter at least one macronutrient!');
+    } else {
+      let caloriesFood = Number((protein * 4) + (carbohydrate * 4) + (fat * 9)).toFixed(0);
+      setResultFood(caloriesFood);
+    };
   };
 
   const milliliters = (value) => {
@@ -39,8 +43,16 @@ export default function App() {
   };
 
   const calculateDrink = () => {
-    let caloriesDrink = Number(milliliter * alcohol / 100 * 7).toFixed(0);
-    setResultDrink(caloriesDrink);
+    if ((milliliter === 0 || milliliter === '') && (alcohol === 0 || alcohol === '')) {
+      Alert.alert('', 'Please inform the requested data!')
+    } else if (milliliter === 0 || milliliter === '') {
+      Alert.alert('', 'Plase inform how many ml your drink have!');
+    } else if (alcohol === 0 || alcohol === '') {
+      Alert.alert('', 'Please informe the ABV of your drink!');
+    } else {
+      let caloriesDrink = Number(milliliter * alcohol / 100 * 7).toFixed(0);
+      setResultDrink(caloriesDrink);
+    };
   };
 
   const foodBacktoMenu = () => {
@@ -94,7 +106,7 @@ export default function App() {
         <TouchableOpacity onPress={calculateFood} style={Styles.buttonFood}>
           <Text style={Styles.buttonTextFood}>Calculate</Text>
         </TouchableOpacity>
-        <Text style={Styles.resultFood}>Your food have {resultFood} calories</Text>
+        <Text style={Styles.resultFood}>{resultFood > 0 ? `Your food have ${resultFood} calories` : ''}</Text>
         <TouchableOpacity onPress={() => foodBacktoMenu()} style={Styles.buttonFoodToMenu}>
           <Text style={Styles.buttonTextFoodToMenu}>Back to Menu</Text>
         </TouchableOpacity>
@@ -117,7 +129,7 @@ export default function App() {
         <TouchableOpacity onPress={calculateDrink} style={Styles.buttonDrink}>
           <Text style={Styles.buttonTextDrink}>Calculate</Text>
         </TouchableOpacity>
-        <Text style={Styles.resultDrink}>Your drink have {resultDrink} calories</Text>
+        <Text style={Styles.resultDrink}>{resultDrink > 0 ? `Your drink have ${resultDrink} calories` : ''}</Text>
         <TouchableOpacity onPress={() => drinkBackToMenu()} style={Styles.buttonDrinkToMenu}>
           <Text style={Styles.buttonTextDrinkToMenu}>Back to Menu</Text>
         </TouchableOpacity>
@@ -184,20 +196,21 @@ const Styles = StyleSheet.create({
     color: '#fff',
   },
   captionFood: {
-    fontFamily: 'Montserrat-Regular',
-    fontSize: 18,
-    marginBottom: 6,
+    fontFamily: 'Montserrat-ExtraBold',
+    fontSize: 17,
+    marginBottom: 7,
     color: '#fff',
   },
   input: {
-    width: Dimensions.get('screen').width / 2,
+    width: Dimensions.get('screen').width / 3,
+    fontSize: 20,
     marginBottom: 12,
     borderRadius: 4,
-    backgroundColor: '#fff',
     paddingLeft: 10,
+    backgroundColor: '#fff',
   },
   buttonFood: {
-    width: Dimensions.get('screen').width / 2.5,
+    width: Dimensions.get('screen').width / 2,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -235,7 +248,7 @@ const Styles = StyleSheet.create({
   },
   containerImageFood: {
     alignItems: 'center',
-    bottom: -250,
+    bottom: -248,
   },
   containerDrink: {
     flex: 1,
@@ -259,13 +272,13 @@ const Styles = StyleSheet.create({
     color: '#fff',
   },
   captionDrink: {
-    fontFamily: 'Montserrat-Regular',
-    fontSize: 18,
-    marginBottom: 6,
+    fontFamily: 'Montserrat-ExtraBold',
+    fontSize: 17,
+    marginBottom: 7,
     color: '#fff',
   },
   buttonDrink: {
-    width: Dimensions.get('screen').width / 2.5,
+    width: Dimensions.get('screen').width / 2,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
