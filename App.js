@@ -19,7 +19,7 @@ export default function App() {
 
   const carbohydrates = (value) => {
     setCarbohydrate(value);
-  }
+  };
 
   const fats = (value) => {
     setFat(value);
@@ -94,7 +94,7 @@ export default function App() {
       <View style={Styles.containerFood}>
         <StatusBar backgroundColor="#170a28" />
         <View style={Styles.containerImageFood}>
-          <FoodImage width="50%" style={Styles.imageFood} />
+          <FoodImage width="55%" style={Styles.imageFood} />
         </View>
         <Text style={Styles.titleFood}>Inform below how many grams of protein, carbohydrates and fat the food have</Text>
         <Text style={Styles.captionFood}>Protein</Text>
@@ -119,7 +119,7 @@ export default function App() {
       <View style={Styles.containerDrink}>
         <StatusBar backgroundColor="#170a28" />
         <View style={Styles.containerImageDrink}>
-          <DrinkImage width="55%" style={Styles.imageDrink} />
+          <DrinkImage width="58%" style={Styles.imageDrink} />
         </View>
         <Text style={Styles.titleDrink}>Inform bellow how many milliliters (ml) of drink you have and what's its alcohol by volume (ABV)</Text>
         <Text style={Styles.captionDrink}>Milliliters (ml)</Text>
@@ -226,7 +226,7 @@ const Styles = StyleSheet.create({
   resultFood: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 20,
     color: '#fff',
   },
   buttonFoodToMenu: {
@@ -234,7 +234,7 @@ const Styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 122,
+    marginTop: 132,
     borderRadius: 4,
     backgroundColor: '#30d4ae',
   },
@@ -248,7 +248,7 @@ const Styles = StyleSheet.create({
   },
   containerImageFood: {
     alignItems: 'center',
-    bottom: -248,
+    bottom: -241,
   },
   containerDrink: {
     flex: 1,
@@ -257,7 +257,7 @@ const Styles = StyleSheet.create({
   },
   containerImageDrink: {
     alignItems: 'center',
-    bottom: -160,
+    bottom: -155,
   },
   imageDrink: {
     position: 'absolute',
@@ -294,7 +294,7 @@ const Styles = StyleSheet.create({
   resultDrink: {
     fontFamily: 'Montserrat-Bold',
     fontSize: 20,
-    marginTop: 30,
+    marginTop: 20,
     color: '#fff',
   },
   buttonDrinkToMenu: {
@@ -302,7 +302,7 @@ const Styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 176,
+    marginTop: 186,
     borderRadius: 4,
     backgroundColor: '#6b63ff',
   },
