@@ -134,12 +134,14 @@ const Styles = StyleSheet.create({
     backgroundColor: '#170a28',
   },
   titleMenu: {
-    fontSize: 45,
+    fontFamily: 'Montserrat-ExtraBold',
+    fontSize: 50,
     marginTop: -60,
     marginBottom: 20,
     color: '#fff',
   },
   captionMenu: {
+    fontFamily: 'Montserrat-Regular',
     fontSize: 20,
     textAlign: 'center',
     padding: 20,
@@ -164,6 +166,7 @@ const Styles = StyleSheet.create({
     borderRadius: 4,
   },
   textButtonsMenu: {
+    fontFamily: 'Montserrat-ExtraBold',
     fontSize: 22,
     color: '#fff',
   },
@@ -173,13 +176,15 @@ const Styles = StyleSheet.create({
     backgroundColor: '#170a28',
   },
   titleFood: {
-    fontSize: 19,
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 17.5,
     padding: 20,
     textAlign: 'center',
     marginTop: 5,
     color: '#fff',
   },
   captionFood: {
+    fontFamily: 'Montserrat-Regular',
     fontSize: 18,
     marginBottom: 6,
     color: '#fff',
@@ -201,13 +206,13 @@ const Styles = StyleSheet.create({
     backgroundColor: '#30d4ae',
   },
   buttonTextFood: {
+    fontFamily: 'Montserrat-ExtraBold',
     fontSize: 22,
-    fontWeight: 'bold',
     color: '#fff',
   },
   resultFood: {
+    fontFamily: 'Montserrat-Bold',
     fontSize: 20,
-    fontWeight: 'bold',
     marginTop: 30,
     color: '#fff',
   },
@@ -221,8 +226,8 @@ const Styles = StyleSheet.create({
     backgroundColor: '#30d4ae',
   },
   buttonTextFoodToMenu: {
+    fontFamily: 'Montserrat-ExtraBold',
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#fff',
   },
   imageFood: {
@@ -245,7 +250,8 @@ const Styles = StyleSheet.create({
     position: 'absolute',
   },
   titleDrink: {
-    fontSize: 19,
+    fontFamily: 'Montserrat-Regular',
+    fontSize: 18.5,
     padding: 20,
     textAlign: 'center',
     marginTop: 5,
@@ -253,6 +259,7 @@ const Styles = StyleSheet.create({
     color: '#fff',
   },
   captionDrink: {
+    fontFamily: 'Montserrat-Regular',
     fontSize: 18,
     marginBottom: 6,
     color: '#fff',
@@ -267,13 +274,13 @@ const Styles = StyleSheet.create({
     backgroundColor: '#6b63ff',
   },
   buttonTextDrink: {
+    fontFamily: 'Montserrat-ExtraBold',
     fontSize: 22,
-    fontWeight: 'bold',
     color: '#fff',
   },
   resultDrink: {
+    fontFamily: 'Montserrat-Bold',
     fontSize: 20,
-    fontWeight: 'bold',
     marginTop: 30,
     color: '#fff',
   },
@@ -287,8 +294,8 @@ const Styles = StyleSheet.create({
     backgroundColor: '#6b63ff',
   },
   buttonTextDrinkToMenu: {
+    fontFamily: 'Montserrat-ExtraBold',
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#fff',
   }
 });
