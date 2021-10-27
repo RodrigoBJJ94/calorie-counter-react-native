@@ -80,9 +80,9 @@ export default function App() {
   function getScreenFood() {
     return (
       <View style={Styles.containerFood}>
-        <StatusBar backgroundColor="#3c3258" />
+        <StatusBar backgroundColor="#170a28" />
         <View style={Styles.containerImageFood}>
-          <FoodImage width="62%" style={Styles.imageFood} />
+          <FoodImage width="50%" style={Styles.imageFood} />
         </View>
         <Text style={Styles.titleFood}>Inform below how many grams of protein, carbohydrates and fat the food have</Text>
         <Text style={Styles.captionFood}>Protein</Text>
@@ -95,8 +95,8 @@ export default function App() {
           <Text style={Styles.buttonTextFood}>Calculate</Text>
         </TouchableOpacity>
         <Text style={Styles.resultFood}>Your food have {resultFood} calories</Text>
-        <TouchableOpacity onPress={() => foodBacktoMenu()} style={Styles.buttonFoodGoMenu}>
-          <Text style={Styles.buttonTextFoodGoMenu}>Back to Menu</Text>
+        <TouchableOpacity onPress={() => foodBacktoMenu()} style={Styles.buttonFoodToMenu}>
+          <Text style={Styles.buttonTextFoodToMenu}>Back to Menu</Text>
         </TouchableOpacity>
       </View>
     );
@@ -104,20 +104,23 @@ export default function App() {
 
   function getScreenDrink() {
     return (
-      <View>
-        <Text>Inform bellow how many milliliters(ml) of drink you have and what's its alcohol by volume(ABV)</Text>
-        <Text>Milliliters(ml)</Text>
+      <View style={Styles.containerDrink}>
+        <StatusBar backgroundColor="#170a28" />
+        <View style={Styles.containerImageDrink}>
+          <DrinkImage width="55%" style={Styles.imageDrink} />
+        </View>
+        <Text style={Styles.titleDrink}>Inform bellow how many milliliters (ml) of drink you have and what's its alcohol by volume (ABV)</Text>
+        <Text style={Styles.captionDrink}>Milliliters (ml)</Text>
         <TextInput keyboardType="numeric" onChangeText={text => milliliters(text)} style={Styles.input} />
-        <Text>Alcohol by Volume(ABV)</Text>
+        <Text style={Styles.captionDrink}>Alcohol by Volume (ABV)</Text>
         <TextInput keyboardType="numeric" onChangeText={text => alcohols(text)} style={Styles.input} />
-        <TouchableOpacity onPress={calculateDrink} style={Styles.button}>
-          <Text>Calculate</Text>
+        <TouchableOpacity onPress={calculateDrink} style={Styles.buttonDrink}>
+          <Text style={Styles.buttonTextDrink}>Calculate</Text>
         </TouchableOpacity>
-        <Text>Your drink have {resultDrink} calories</Text>
-        <TouchableOpacity onPress={() => drinkBackToMenu()}>
-          <Text>Back to Menu</Text>
+        <Text style={Styles.resultDrink}>Your drink have {resultDrink} calories</Text>
+        <TouchableOpacity onPress={() => drinkBackToMenu()} style={Styles.buttonDrinkToMenu}>
+          <Text style={Styles.buttonTextDrinkToMenu}>Back to Menu</Text>
         </TouchableOpacity>
-        <DrinkImage width="80%" />
       </View>
     );
   };
@@ -145,7 +148,7 @@ const Styles = StyleSheet.create({
   buttonGoFood: {
     width: Dimensions.get('screen').width / 2,
     height: 45,
-    backgroundColor: '#d54224',
+    backgroundColor: '#30d4ae',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
@@ -167,14 +170,13 @@ const Styles = StyleSheet.create({
   containerFood: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: '#3c3258',
+    backgroundColor: '#170a28',
   },
   titleFood: {
     fontSize: 19,
     padding: 20,
     textAlign: 'center',
-    marginTop: 15,
-    marginBottom: 10,
+    marginTop: 5,
     color: '#fff',
   },
   captionFood: {
@@ -187,37 +189,40 @@ const Styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 4,
     backgroundColor: '#fff',
+    paddingLeft: 10,
   },
   buttonFood: {
     width: Dimensions.get('screen').width / 2.5,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 10,
     borderRadius: 4,
     backgroundColor: '#30d4ae',
   },
   buttonTextFood: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
   },
   resultFood: {
     fontSize: 20,
-    marginTop: 40,
+    fontWeight: 'bold',
+    marginTop: 30,
     color: '#fff',
   },
-  buttonFoodGoMenu: {
+  buttonFoodToMenu: {
     width: Dimensions.get('screen').width / 1.2,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 83,
+    marginTop: 122,
     borderRadius: 4,
-    backgroundColor: '#170a28',
+    backgroundColor: '#30d4ae',
   },
-  buttonTextFoodGoMenu: {
+  buttonTextFoodToMenu: {
     fontSize: 20,
+    fontWeight: 'bold',
     color: '#fff',
   },
   imageFood: {
@@ -225,6 +230,65 @@ const Styles = StyleSheet.create({
   },
   containerImageFood: {
     alignItems: 'center',
-    bottom: -233,
+    bottom: -250,
+  },
+  containerDrink: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#170a28',
+  },
+  containerImageDrink: {
+    alignItems: 'center',
+    bottom: -160,
+  },
+  imageDrink: {
+    position: 'absolute',
+  },
+  titleDrink: {
+    fontSize: 19,
+    padding: 20,
+    textAlign: 'center',
+    marginTop: 5,
+    marginBottom: 10,
+    color: '#fff',
+  },
+  captionDrink: {
+    fontSize: 18,
+    marginBottom: 6,
+    color: '#fff',
+  },
+  buttonDrink: {
+    width: Dimensions.get('screen').width / 2.5,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+    borderRadius: 4,
+    backgroundColor: '#6b63ff',
+  },
+  buttonTextDrink: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  resultDrink: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: 30,
+    color: '#fff',
+  },
+  buttonDrinkToMenu: {
+    width: Dimensions.get('screen').width / 1.2,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 176,
+    borderRadius: 4,
+    backgroundColor: '#6b63ff',
+  },
+  buttonTextDrinkToMenu: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
   }
 });
