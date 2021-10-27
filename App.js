@@ -67,10 +67,10 @@ export default function App() {
         <StatusBar backgroundColor="#170a28" />
         <Text style={Styles.titleMenu}>Menu</Text>
         <Text style={Styles.captionMenu}>Do you want to find out the amount of calories in a food or drink?</Text>
-        <TouchableOpacity onPress={() => setScreen('food')} style={Styles.buttonFood}>
+        <TouchableOpacity onPress={() => setScreen('food')} style={Styles.buttonGoFood}>
           <Text style={Styles.textButtonsMenu}>Food</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => setScreen('drink')} style={Styles.buttonDrink}>
+        <TouchableOpacity onPress={() => setScreen('drink')} style={Styles.buttonGoDrink}>
           <Text style={Styles.textButtonsMenu}>Drink</Text>
         </TouchableOpacity>
       </View>
@@ -80,21 +80,24 @@ export default function App() {
   function getScreenFood() {
     return (
       <View style={Styles.containerFood}>
+        <StatusBar backgroundColor="#3c3258" />
+        <View style={Styles.containerImageFood}>
+          <FoodImage width="62%" style={Styles.imageFood} />
+        </View>
         <Text style={Styles.titleFood}>Inform below how many grams of protein, carbohydrates and fat the food have</Text>
-        <Text>Protein</Text>
+        <Text style={Styles.captionFood}>Protein</Text>
         <TextInput keyboardType="numeric" onChangeText={text => proteins(text)} style={Styles.input} />
-        <Text>Carbohydrate</Text>
+        <Text style={Styles.captionFood}>Carbohydrate</Text>
         <TextInput keyboardType="numeric" onChangeText={text => carbohydrates(text)} style={Styles.input} />
-        <Text>Fat</Text>
+        <Text style={Styles.captionFood}>Fat</Text>
         <TextInput keyboardType="numeric" onChangeText={text => fats(text)} style={Styles.input} />
-        <TouchableOpacity onPress={calculateFood} style={Styles.button}>
-          <Text style={Styles.buttonText}>Calculate</Text>
+        <TouchableOpacity onPress={calculateFood} style={Styles.buttonFood}>
+          <Text style={Styles.buttonTextFood}>Calculate</Text>
         </TouchableOpacity>
-        <Text>Your food have {resultFood} calories</Text>
-        <TouchableOpacity onPress={() => foodBacktoMenu()}>
-          <Text>Back to Menu</Text>
+        <Text style={Styles.resultFood}>Your food have {resultFood} calories</Text>
+        <TouchableOpacity onPress={() => foodBacktoMenu()} style={Styles.buttonFoodGoMenu}>
+          <Text style={Styles.buttonTextFoodGoMenu}>Back to Menu</Text>
         </TouchableOpacity>
-        <FoodImage width="70%" />
       </View>
     );
   };
@@ -139,17 +142,17 @@ const Styles = StyleSheet.create({
     padding: 20,
     color: '#fff',
   },
-  buttonFood: {
+  buttonGoFood: {
     width: Dimensions.get('screen').width / 2,
     height: 45,
-    backgroundColor: '#ea565c',
+    backgroundColor: '#d54224',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 10,
     borderRadius: 4,
   },
-  buttonDrink: {
+  buttonGoDrink: {
     width: Dimensions.get('screen').width / 2,
     height: 45,
     backgroundColor: '#6b63ff',
@@ -163,28 +166,65 @@ const Styles = StyleSheet.create({
   },
   containerFood: {
     flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#3c3258',
   },
   titleFood: {
-    fontSize: 20,
+    fontSize: 19,
     padding: 20,
     textAlign: 'center',
+    marginTop: 15,
+    marginBottom: 10,
+    color: '#fff',
+  },
+  captionFood: {
+    fontSize: 18,
+    marginBottom: 6,
+    color: '#fff',
   },
   input: {
-    width: Dimensions.get('screen').width,
-    backgroundColor: '#aaa',
+    width: Dimensions.get('screen').width / 2,
+    marginBottom: 12,
+    borderRadius: 4,
+    backgroundColor: '#fff',
   },
-  button: {
-    width: Dimensions.get('screen').width / 3,
+  buttonFood: {
+    width: Dimensions.get('screen').width / 2.5,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#afc',
+    marginTop: 20,
+    borderRadius: 4,
+    backgroundColor: '#30d4ae',
   },
-  buttonText: {
-    fontSize: 18,
+  buttonTextFood: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#000',
   },
-  imageBackground: {
-    flex: 1,
+  resultFood: {
+    fontSize: 20,
+    marginTop: 40,
+    color: '#fff',
+  },
+  buttonFoodGoMenu: {
+    width: Dimensions.get('screen').width / 1.2,
+    height: 50,
     justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 83,
+    borderRadius: 4,
+    backgroundColor: '#170a28',
+  },
+  buttonTextFoodGoMenu: {
+    fontSize: 20,
+    color: '#fff',
+  },
+  imageFood: {
+    position: 'absolute',
+  },
+  containerImageFood: {
+    alignItems: 'center',
+    bottom: -233,
   }
 });
