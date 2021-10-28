@@ -28,6 +28,7 @@ export default function App() {
   const calculateFood = () => {
     if ((protein === 0 || protein === '') && (carbohydrate === 0 || carbohydrate === '') && (fat === 0 || fat === '')) {
       Alert.alert('', 'Please enter at least one macronutrient!');
+      setResultFood(0);
     } else {
       let caloriesFood = Number((protein * 4) + (carbohydrate * 4) + (fat * 9)).toFixed(0);
       setResultFood(caloriesFood);
@@ -44,11 +45,14 @@ export default function App() {
 
   const calculateDrink = () => {
     if ((milliliter === 0 || milliliter === '') && (alcohol === 0 || alcohol === '')) {
-      Alert.alert('', 'Please inform the requested data!')
+      Alert.alert('', 'Please inform the requested data!');
+      setResultDrink(0);
     } else if (milliliter === 0 || milliliter === '') {
       Alert.alert('', 'Plase inform how many ml your drink have!');
+      setResultDrink(0);
     } else if (alcohol === 0 || alcohol === '') {
       Alert.alert('', 'Please informe the ABV of your drink!');
+      setResultDrink(0);
     } else {
       let caloriesDrink = Number(milliliter * alcohol / 100 * 7).toFixed(0);
       setResultDrink(caloriesDrink);
@@ -57,11 +61,16 @@ export default function App() {
 
   const foodBacktoMenu = () => {
     setScreen('menu');
+    setProtein(0);
+    setCarbohydrate(0);
+    setFat(0);
     setResultFood(0);
   };
 
   const drinkBackToMenu = () => {
     setScreen('menu');
+    setMilliliter(0);
+    setAlcohol(0);
     setResultDrink(0);
   };
 
