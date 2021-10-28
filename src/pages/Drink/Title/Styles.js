@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
     titleDrink: {
         fontFamily: 'Montserrat-Regular',
-        fontSize: 18.5,
+        fontSize: 16.5,
         padding: 20,
         textAlign: 'center',
-        marginTop: 5,
+        marginTop: -10,
         marginBottom: 10,
         color: '#fff',
     }

@@ -6,6 +6,6 @@ export default StyleSheet.create({
     },
     containerImageFood: {
         alignItems: 'center',
-        bottom: -241,
+        bottom: -234,
     }
 });

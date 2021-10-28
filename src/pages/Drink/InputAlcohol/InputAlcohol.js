@@ -9,7 +9,7 @@ export default function InputAlcohol({ setAlcohol }) {
 
     return (
         <>
-            <Text style={Styles.captionDrink}>Alcohol by Volume (ABV)</Text>
+            <Text style={Styles.captionDrink}>Alcohol by Volume (ABV %)</Text>
             <TextInput keyboardType="numeric" onChangeText={text => alcohols(text)} style={Styles.input} />
         </>
     );
