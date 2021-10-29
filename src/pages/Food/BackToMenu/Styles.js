@@ -6,7 +6,7 @@ export default StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 150,
+        marginTop: 155,
         borderRadius: 4,
         backgroundColor: '#30d4ae',
     },
